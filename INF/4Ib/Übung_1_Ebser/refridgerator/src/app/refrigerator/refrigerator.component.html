@@ -1,0 +1,13 @@
+<div id="fridge">
+  <div class="name">Refrigerator</div>
+  <div class="cooling-stage">
+    <button (click)="fridge.changeState('increase')">+</button>
+    {{ fridge.getState().coolingStage }}
+    <button (click)="fridge.changeState('decrease')">-</button>
+  </div>
+  <div class="status">
+    <button (click)="fridge.changeState('toggle')">
+      {{ fridge.getState().isActive ? "On" : "Off" }}
+    </button>
+  </div>
+</div>
