@@ -3,10 +3,15 @@
   <div class="cooling-stage">
     <button (click)="fridge.changeState('increase')">+</button>
     {{ fridge.getState().coolingStage }}
-    <button (click)="fridge.changeState('decrease')">-</button>
+    <button (click)="fridge.changeState('decrease')">
+      <span class="material-icons-outlined"> arrow_drop_down </span>
+    </button>
   </div>
   <div class="status">
-    <button (click)="fridge.changeState('toggle')">
+    <button
+      (click)="fridge.changeState('toggle')"
+      [ngStyle]="{ background: fridge.getState().isActive ? 'green' : 'red' }"
+    >
       {{ fridge.getState().isActive ? "On" : "Off" }}
     </button>
   </div>
