@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+const MIN_COOLING_STAGE = 1;
+const MAX_COOLING_STAGE = 3;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,15 +16,19 @@ export class Refrigerator {
   }
 
   increaseCoolingStage(): void {
-    this.coolingStage++;
+    if (this.coolingStage < MAX_COOLING_STAGE && this.isActive)
+      this.coolingStage++;
   }
 
   decreaseCoolingStage(): void {
-    this.coolingStage--;
+    if (this.coolingStage > MIN_COOLING_STAGE && this.isActive)
+      this.coolingStage--;
   }
 
   toggleOnOff(): void {
     this.isActive = !this.isActive;
+    if (this.coolingStage > 0) this.coolingStage = 0;
+    else this.coolingStage = 2;
   }
 
   changeState(action: string): void {

@@ -1,13 +1,23 @@
-<div id="fridge">
-  <div class="name">Refrigerator</div>
-  <div class="cooling-stage">
-    <button (click)="fridge.changeState('increase')">+</button>
-    {{ fridge.getState().coolingStage }}
-    <button (click)="fridge.changeState('decrease')">-</button>
-  </div>
-  <div class="status">
-    <button (click)="fridge.changeState('toggle')">
-      {{ fridge.getState().isActive ? "On" : "Off" }}
-    </button>
+<div class="container">
+  <div class="fridge-outline">
+    <div class="fridge-door"></div>
+    <div class="fridge-shadow"></div>
+    <div class="fridge-handle small"></div>
+    <div class="fridge-handle big"></div>
+    <div class="fridge-leg left"></div>
+    <div class="fridge-leg right"></div>
+    <button
+      class="fridge-on-off"
+      (click)="fridge.changeState('toggle')"
+      [ngStyle]="{
+        background: fridge.getState().isActive ? 'lightgreen' : 'red'
+      }"
+    ></button>
+    <button class="arrow up" (click)="fridge.changeState('increase')"></button>
+    <button
+      class="arrow down"
+      (click)="fridge.changeState('decrease')"
+    ></button>
+    <div class="cooling-stage">{{ fridge.getState().coolingStage }}</div>
   </div>
 </div>
