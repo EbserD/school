@@ -34,6 +34,11 @@
         background: fridge.getState().isActive ? 'lightgreen' : 'red'
       }"
     ></button>
-    <div class="arrow up"></div>
+    <button class="arrow up" (click)="fridge.changeState('increase')"></button>
+    <button
+      class="arrow down"
+      (click)="fridge.changeState('decrease')"
+    ></button>
+    <div class="cooling-stage">{{ fridge.getState().coolingStage }}</div>
   </div>
 </div>
