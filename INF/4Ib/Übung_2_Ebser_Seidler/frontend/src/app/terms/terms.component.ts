@@ -26,10 +26,12 @@ export class TermsComponent implements OnInit {
   terms: Term[];
 
   ngOnInit(): void {
-    this.fetchTerms().subscribe;
+    this.fetchTerms().subscribe((response) => {
+      this.terms = response;
+    });
   }
 
   fetchTerms() {
-    return this.http.get<Term[]>('myurl/all');
+    return this.http.get<Term[]>('http://localhost:3000/terms/all');
   }
 }
