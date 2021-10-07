@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
 
 export async function getAllTerms() {
   connection.connect();
-  connection.query("SELECT 1 + 1 AS solution", function (err, rows, fields) {
+    connection.query("SELECT * FROM tblTerms", function (err, rows, fields) {
     if (err) throw err;
     console.log("The solution is: ", rows[0].solution);
   });
@@ -16,7 +16,7 @@ export async function getAllTerms() {
 
 export async function getAllCategories() {
   connection.connect();
-  connection.query("SELECT 1 + 1 AS solution", function (err, rows, fields) {
+    connection.query("SELECT * FROM tblCategories", function (err, rows, fields) {
     if (err) throw err;
     console.log("The solution is: ", rows[0].solution);
   });
