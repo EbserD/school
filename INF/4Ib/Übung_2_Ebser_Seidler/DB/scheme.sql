@@ -15,22 +15,5 @@ CREATE TABLE IF NOT EXISTS tblCategories (
     PRIMARY KEY (categoryID)
 );
 
-CREATE TRIGGER insertDatetime BEFORE INSERT ON tblTerms
-       FOR EACH ROW 
-       SET 
-		new.creatonTimestamp = now(),
-		new.lastchangedTimestamp = now();
-
-CREATE TRIGGER updateDatetime BEFORE UPDATE ON tblTerms
-       FOR EACH ROW 
-       SET
-		new.lastchangedTimestamp = now();
-        
-        
-INSERT INTO tblcategories (categoryName)
-VALUES 
-("Netzwerktechnik"),
-("Datenbanken"),
-("Softwareentwicklung");
-
-
+/* TODO Trigger when insert tblTerms, set timestamps
+/* TODO Trigger when update tblTerms, set lastchangedTimestamp
