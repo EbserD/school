@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS tblCategories (
     PRIMARY KEY (categoryID)
 );
 
-/* TODO Trigger when insert tblTerms, set timestamps
-/* TODO Trigger when update tblTerms, set lastchangedTimestamp
+-- TODO Trigger when insert tblTerms, set timestamps
+-- TODO Trigger when update tblTerms, set lastchangedTimestamp
 
 CREATE TRIGGER insertDatetime BEFORE INSERT ON tblTerms
        FOR EACH ROW 
