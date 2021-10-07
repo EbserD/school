@@ -33,4 +33,9 @@ VALUES
 ("Datenbanken"),
 ("Softwareentwicklung");
 
+INSERT INTO tblTerms (term, termDescription, categoryID)
+VALUES 
+("Routing", "Routing bezeichnet in der Telekommunikation das Festlegen von Wegen für Nachrichtenströme bei der Nachrichtenübermittlung in Rechnernetzen. ", 1),
+("sequenzielles Abarbeiten", "Ist das Abarbeiten aufeinander folgend", 3);
+
 
