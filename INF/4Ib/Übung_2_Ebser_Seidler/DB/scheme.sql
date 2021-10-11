@@ -1,3 +1,13 @@
+CREATE DATABASE IF NOT EXISTS terms;
+
+USE terms;
+
+CREATE TABLE IF NOT EXISTS tblCategories (
+	categoryID INT AUTO_INCREMENT,
+	categoryName Varchar(45),
+    PRIMARY KEY (categoryID)
+);
+
 CREATE TABLE IF NOT EXISTS tblTerms (
 	termID int NOT NULL AUTO_INCREMENT,
     term VARCHAR(60),
@@ -7,12 +17,6 @@ CREATE TABLE IF NOT EXISTS tblTerms (
     lastchangedTimestamp DATETIME,
     PRIMARY KEY (termID),
     FOREIGN KEY (categoryID) REFERENCES tblCategories(categoryID)
-);
-
-CREATE TABLE IF NOT EXISTS tblCategories (
-	categoryID INT AUTO_INCREMENT,
-	categoryName Varchar(45),
-    PRIMARY KEY (categoryID)
 );
 
 -- TODO Trigger when insert tblTerms, set timestamps
