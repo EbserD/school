@@ -1,24 +1,39 @@
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
-  user: "dbuser",
-  password: "s3kreee7",
+  user: "root",
+  password: "",
+  database: "terms",
 });
 
-export async function getAllTerms() {
-  connection.connect();
+function getAllTerms() {
+  return new Promise((resolve, reject) => {
+    // connection.connect();
     connection.query("SELECT * FROM tblTerms", function (err, rows, fields) {
-    if (err) throw err;
-    console.log("The solution is: ", rows[0].solution);
+      if (err) throw err;
+      // console.log("The solution is: ", rows);
+      resolve(rows);
+    });
+    // connection.end();
   });
-  connection.end();
 }
 
-export async function getAllCategories() {
-  connection.connect();
-    connection.query("SELECT * FROM tblCategories", function (err, rows, fields) {
-    if (err) throw err;
-    console.log("The solution is: ", rows[0].solution);
+async function getAllCategories() {
+  return new Promise((resolve, reject) => {
+    // connection.connect();
+    connection.query(
+      "SELECT * FROM tblCategories",
+      function (err, rows, fields) {
+        if (err) throw err;
+        // console.log("The solution is: ", rows[0].solution);
+        resolve(rows);
+      }
+    );
+    // connection.end();
   });
-  connection.end();
 }
+
+module.exports = {
+  getAllTerms: getAllTerms,
+  getAllCategories: getAllCategories,
+};
